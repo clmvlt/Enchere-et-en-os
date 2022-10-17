@@ -34,6 +34,13 @@ namespace ProjetAP.Services
             Enchere.CollClasse.Clear();
             return res;
         }
+
+        public static async Task<ObservableCollection<Offer>> GetLastSixOffer(int idEnchere)
+        {
+            var res = await _apiServices.GetAllAsyncID<Offer>("api/getLastSixOffer", Offer.CollClasse, "Id", idEnchere);
+            Offer.CollClasse.Clear();
+            return res;
+        }
         #endregion
     }
 }

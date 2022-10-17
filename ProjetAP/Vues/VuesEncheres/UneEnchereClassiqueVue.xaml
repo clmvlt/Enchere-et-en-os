@@ -3,10 +3,42 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereClassiqueVue"
              Title="UneEnchereClassiqueVue">
-    <VerticalStackLayout Margin="30">
-        <Button x:Name="btnRetour" Text="Retour" WidthRequest="100" HorizontalOptions="Start" Clicked="btnRetour_Clicked" />
-        <Label Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="CenterAndExpand" FontSize="50"/>
-        <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="600" HorizontalOptions="CenterAndExpand"/>
-        <Label Text="{Binding Enchere.DateDebut, StringFormat='Date de début : {0}'}" HorizontalOptions="CenterAndExpand"/>
-    </VerticalStackLayout>
+    <ScrollView Margin="0,25,0,0">
+        <VerticalStackLayout Margin="30">
+            <Button x:Name="btnRetour" Text="Retour" WidthRequest="100" HorizontalOptions="Start" Clicked="btnRetour_Clicked" />
+            <Label Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="CenterAndExpand" FontSize="50"/>
+            <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="600" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="{Binding Enchere.DateDebut, StringFormat='Date de début : {0}'}" HorizontalOptions="CenterAndExpand"/>
+
+            <Label HorizontalOptions="Center">
+                <Label.Text>
+                    <MultiBinding StringFormat="{}{0}j {1}h {2}m {3}s">
+                        <Binding Path="TempsRestantJour" />
+                        <Binding Path="TempsRestantHeures" />
+                        <Binding Path="TempsRestantMinutes" />
+                        <Binding Path="TempsRestantSecondes" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+
+            <Label Text="{Binding Enchere.PrixReserve, StringFormat='Prix réservé : {0}€'}" HorizontalOptions="Center" FontSize="20" />
+            <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix départ : {0}€'}" HorizontalOptions="Center" FontSize="20" />
+            
+            <Label Margin="0,50,0,20" Text="Liste des 6 derniers offeurs :" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
+            <CollectionView ItemsSource="{Binding Offers}" HorizontalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Label>
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0} pour {1}€">
+                                    <Binding Path="Pseudo" />
+                                    <Binding Path="PrixEnchere" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
