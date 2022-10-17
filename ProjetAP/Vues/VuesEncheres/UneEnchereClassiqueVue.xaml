@@ -22,7 +22,7 @@
             </Label>
 
             <Label Text="{Binding Enchere.PrixReserve, StringFormat='Prix réservé : {0}€'}" HorizontalOptions="Center" FontSize="20" />
-            <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix départ : {0}€'}" HorizontalOptions="Center" FontSize="20" />
+            <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix Départ : {0}€'}" HorizontalOptions="Center" FontSize="20" />
             
             <Label Margin="0,50,0,20" Text="Liste des 6 derniers offeurs :" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
             <CollectionView ItemsSource="{Binding Offers}" HorizontalOptions="Center">
