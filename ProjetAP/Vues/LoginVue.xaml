@@ -4,12 +4,52 @@
              x:Class="ProjetAP.Vues.LoginVue"
              Title="LoginVue">
     <VerticalStackLayout>
-        <Label Text="Mail :" Margin="0, 20, 0, 0"/>
-        <Entry x:Name="entryMail"/>
-        <Label Text="Pass :"/>
-        <Entry x:Name="entryPass"/>
-        <Button x:Name="btnLogin" Text="Se connecter" Clicked="btnLogin_Clicked"  Margin="0, 20, 0, 0"/>
-        <Button x:Name="btnSignIn" Text="Vous n'avez pas de compte ?" Clicked="btnSignIn_Clicked"/>
-        <Label Text="{Binding ErreurMsg}"/>
+        <Grid RowDefinitions="*, *, *, *, *"
+              ColumnDefinitions="*">
+
+            <Border Grid.ColumnSpan="1"
+                    Stroke="Black"
+                    StrokeShape="Ellipse"
+                    Padding="16,2"
+                    HorizontalOptions="Center">
+                <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif"
+                   IsAnimationPlaying="True"
+                   HeightRequest="150"/>
+            </Border>
+
+            <Label Grid.Row="1"
+                   Grid.ColumnSpan="1"
+                   Text="Enchère en os"
+                   HorizontalOptions="Center"/>
+
+            <Border Grid.Row="2"
+                    Grid.ColumnSpan="1"
+                    Stroke="Black"
+                    Padding="16,2"
+                    HorizontalOptions="Center">
+                <Entry x:Name="entryMail"
+                       Placeholder="Mail"
+                       Keyboard="Email"
+                       WidthRequest="200"/>
+            </Border>
+
+            <Border Grid.Row="3"
+                    Grid.ColumnSpan="1"
+                    Stroke="Black"
+                    Padding="16,2"
+                    HorizontalOptions="Center">
+                <Entry x:Name="entryPass"
+                       Placeholder="Mot de passe"
+                       IsPassword ="True"
+                       WidthRequest="200"/>
+            </Border>
+
+            <Button Grid.Row="4"
+                    Grid.ColumnSpan="1"
+                    Text="Suivant"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"/>
+
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
