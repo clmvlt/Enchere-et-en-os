@@ -17,10 +17,16 @@
                    HeightRequest="150"/>
             </Border>
 
-            <Label Grid.Row="1"
-                   Grid.ColumnSpan="1"
-                   Text="Enchère en os"
-                   HorizontalOptions="Center"/>
+            <StackLayout Grid.Row="1"
+                   Grid.ColumnSpan="1">
+                <Label 
+                       Text="Enchère en os"
+                       HorizontalOptions="Center"/>
+
+                <Frame BackgroundColor="#B80C09" HorizontalOptions="CenterAndExpand" Margin="5,5,5,5" Padding="5,5,5,5">
+                    <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center"/>
+                </Frame>
+            </StackLayout>
 
             <Border Grid.Row="2"
                     Grid.ColumnSpan="1"
@@ -46,9 +52,10 @@
 
             <Button Grid.Row="4"
                     Grid.ColumnSpan="1"
-                    Text="Suivant"
+                    Text="Se connecter"
                     VerticalOptions="Center"
-                    HorizontalOptions="Center"/>
+                    HorizontalOptions="Center"
+                    Clicked="btnLogin_Clicked"/>
 
         </Grid>
     </VerticalStackLayout>
