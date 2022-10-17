@@ -36,6 +36,7 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
 
             this.GetTimerRemaining();
             this.AfficherLastSixOffers();
+            this.ThreadRefreshEnchere();
         }
         #endregion
 
@@ -95,6 +96,24 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             });
 
 
+        }
+
+        public void ThreadRefreshEnchere()
+        {
+            Task.Run(() =>
+            {
+                while (true)
+                {
+                    RefreshEnchere();
+                    Thread.Sleep(5000);
+                }
+            });
+        }
+
+        public async void RefreshEnchere()
+        {
+            this.Enchere = await APIEnchere.GetEnchere(this.Enchere.Id);
+            Offers = await APIEnchere.GetLastSixOffer(Enchere.Id);
         }
 
         private async void AfficherLastSixOffers()

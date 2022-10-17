@@ -39,6 +39,10 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+
+            <Label Text="Encherir :" HorizontalOptions="Center"/>
+            <Entry x:Name="entryEncherir" HorizontalOptions="Center"/>
+            <Button HorizontalOptions="Center" WidthRequest="200" Text="Enchérir" x:Name="btnEcherir" Clicked="btnEcherir_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

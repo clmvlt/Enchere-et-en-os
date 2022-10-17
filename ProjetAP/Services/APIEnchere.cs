@@ -28,6 +28,13 @@ namespace ProjetAP.Services
             return res;
         }
 
+        public static async Task<Enchere> GetEnchere(int id)
+        {
+            var res = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresEnCours", Enchere.CollClasse, "Id", id);
+            Enchere.CollClasse.Clear();
+            return res.First();
+        }
+
         public static async Task<ObservableCollection<Enchere>> GetEncheresFutures()
         {
             var res = await _apiServices.GetAllAsync<Enchere>("api/getEncheresFutures", Enchere.CollClasse);
@@ -40,6 +47,12 @@ namespace ProjetAP.Services
             var res = await _apiServices.GetAllAsyncID<Offer>("api/getLastSixOffer", Offer.CollClasse, "Id", idEnchere);
             Offer.CollClasse.Clear();
             return res;
+        }
+
+        public static async Task PostEncherir(float montant, User user, Enchere enchere)
+        {
+            Encherir encherir = new Encherir(enchere.Id, montant, new DateTime(), enchere, user);
+            await _apiServices.PostAsync<Encherir>(encherir, "api/postEncherir");
         }
         #endregion
     }

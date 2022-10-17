@@ -37,6 +37,8 @@ namespace ProjetAP.Modeles
         public DateTime DateEnchere { get => _dateEnchere; set => _dateEnchere = value; }
         public Enchere LaEnchere { get => _laEnchere; set => _laEnchere = value; }
         public User LeUser { get => _leUser; set => _leUser = value; }
+        public int IdEnchere { get => LaEnchere.Id; }
+        public int IdUser { get => LeUser.Id; }
         #endregion
 
         #region Methodes
