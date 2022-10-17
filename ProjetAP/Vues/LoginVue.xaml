@@ -4,39 +4,19 @@
              x:Class="ProjetAP.Vues.LoginVue"
              Title="LoginVue">
     <VerticalStackLayout>
-        <Grid RowDefinitions="*, *, *, *, *"
-              ColumnDefinitions="*">
-
-            <Border Grid.ColumnSpan="1"
-                    Stroke="Black"
-                    StrokeShape="Ellipse"
-                    Padding="16,2"
-                    HorizontalOptions="Center">
-                <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif"
-                   IsAnimationPlaying="True"
-                   HeightRequest="150"/>
+        <Grid RowDefinitions="*, *, *, *, *" ColumnDefinitions="*">
+            <Border Grid.ColumnSpan="1" Stroke="Black" StrokeShape="Ellipse" Padding="16,2" HorizontalOptions="Center">
+                <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif" IsAnimationPlaying="True" HeightRequest="150"/>
             </Border>
-
-            <StackLayout Grid.Row="1"
-                   Grid.ColumnSpan="1">
-                <Label 
-                       Text="Enchère en os"
-                       HorizontalOptions="Center"/>
-
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="1">
+                <Label Text="Enchère en os" HorizontalOptions="Center"/>
                 <Frame BackgroundColor="#B80C09" HorizontalOptions="CenterAndExpand" Margin="5,5,5,5" Padding="5,5,5,5">
-                    <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center"/>
+                    <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center" TextColor="White"/>
                 </Frame>
             </StackLayout>
 
-            <Border Grid.Row="2"
-                    Grid.ColumnSpan="1"
-                    Stroke="Black"
-                    Padding="16,2"
-                    HorizontalOptions="Center">
-                <Entry x:Name="entryMail"
-                       Placeholder="Mail"
-                       Keyboard="Email"
-                       WidthRequest="200"/>
+            <Border Grid.Row="2" Grid.ColumnSpan="1" Stroke="Black" Padding="16,2" HorizontalOptions="Center">
+                <Entry x:Name="entryMail" Placeholder="Mail" Keyboard="Email" WidthRequest="200"/>
             </Border>
 
             <Border Grid.Row="3"
