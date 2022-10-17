@@ -17,5 +17,6 @@ public partial class EncheresClassiquesVue : ContentPage
 	{
 		Button btn = sender as Button;
 		Enchere selectedEnchere = btn.BindingContext as Enchere;
+		App.Current.MainPage = new UneEnchereClassiqueVue(selectedEnchere);
 	}
 }

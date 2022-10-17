@@ -71,6 +71,9 @@
 	  <MauiXaml Update="Vues\VuesEncheres\EncheresClassiquesVue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Vues\VuesEncheres\UneEnchereClassiqueVue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
