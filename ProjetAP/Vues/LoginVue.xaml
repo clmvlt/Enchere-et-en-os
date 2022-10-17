@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetAP.Vues.LoginVue"
+             Title="LoginVue">
+    <VerticalStackLayout>
+        <Label Text="Mail :" Margin="0, 20, 0, 0"/>
+        <Entry x:Name="entryMail"/>
+        <Label Text="Pass :"/>
+        <Entry x:Name="entryPass"/>
+        <Button x:Name="btnLogin" Text="Se connecter" Clicked="btnLogin_Clicked"  Margin="0, 20, 0, 0"/>
+        <Button x:Name="btnSignIn" Text="Vous n'avez pas de compte ?" Clicked="btnSignIn_Clicked"/>
+        <Label Text="{Binding ErreurMsg}"/>
+    </VerticalStackLayout>
+</ContentPage>

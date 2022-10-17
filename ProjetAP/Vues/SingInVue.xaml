@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetAP.Vues.SingInVue"
+             Title="SingInVue">
+    <VerticalStackLayout>
+        <Label Text="Mail :"/>
+        <Entry x:Name="entryMail"/>
+        <Label Text="Pass :"/>
+        <Entry x:Name="entryPass"/>
+        <Label Text="Photo :"/>
+        <Entry x:Name="entryPhoto"/>
+        <Label Text="Pseudo :"/>
+        <Entry x:Name="entryPseudo"/>
+        <Button x:Name="btnSignIn" Text="Créer le compte" Clicked="btnSignIn_Clicked"/>
+        <Button x:Name="btnBack" Text="Retour" Clicked="btnBack_Clicked"/>
+
+        <Label Text="{Binding ResEnr}"/>
+    </VerticalStackLayout>
+</ContentPage>
