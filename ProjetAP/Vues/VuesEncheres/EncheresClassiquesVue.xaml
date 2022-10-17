@@ -18,13 +18,13 @@
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
 
-                            <Image Grid.Column="0" Source="{Binding LeProduit.Photo}" WidthRequest="200"/>
+                            <Image Grid.Column="0" Source="{Binding LeProduit.Photo}" HeightRequest="200"/>
                             <StackLayout Grid.Column="1">
                                 <Label Grid.Column="1" Text="{Binding LeProduit.Nom}"/>
                                 <DatePicker Grid.Column="1" Format="dd/mm/yyyy" Date="{Binding DateDebut}"/>
                                 <DatePicker Grid.Column="1" Format="dd/mm/yyyy" Date="{Binding DateFin}"/>
                                 <Label Grid.Column="1" Text="{Binding LeProduit.PrixReel, StringFormat='{0}€'}"/>
-                                <Button Text="Voir l'enchère" WidthRequest="200" Clicked="Button_Clicked"/>
+                                <Button x:Name='btnViewEnchere' Text="Voir l'enchère" WidthRequest="200" Clicked="btnViewEnchere_Clicked"/>
                             </StackLayout>
                         </Grid>
                     </DataTemplate>

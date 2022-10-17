@@ -1,3 +1,4 @@
+using ProjetAP.Modeles;
 using ProjetAP.Services;
 using ProjetAP.VuesModeles.VuesModelesEncheres;
 
@@ -12,8 +13,9 @@ public partial class EncheresClassiquesVue : ContentPage
 		BindingContext = vueModele = new EncheresClassiquesVueModele();
     }
 
-	private void Button_Clicked(object sender, EventArgs e)
+	private void btnViewEnchere_Clicked(object sender, EventArgs e)
 	{
-
-    }
+		Button btn = sender as Button;
+		Enchere selectedEnchere = btn.BindingContext as Enchere;
+	}
 }
