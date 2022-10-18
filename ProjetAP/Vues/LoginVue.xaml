@@ -23,7 +23,7 @@
                 <Entry x:Name="entryPass" Placeholder="Mot de passe" IsPassword ="True" WidthRequest="200"/>
             </Border>
 
-            <Button Grid.Row="4" Grid.ColumnSpan="1" Text="Se connecter" VerticalOptions="Center" HorizontalOptions="Center" Clicked="btnLogin_Clicked"/>
+            <Button x:Name="btnLogin" Grid.Row="4" Grid.ColumnSpan="1" Text="Se connecter" VerticalOptions="Center" HorizontalOptions="Center" Clicked="btnLogin_Clicked"/>
 
             <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center">
                 <Label Text="Vous n'avez pas de compte ? Cliquez "/>
