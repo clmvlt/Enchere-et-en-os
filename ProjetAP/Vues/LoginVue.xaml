@@ -4,13 +4,13 @@
              x:Class="ProjetAP.Vues.LoginVue"
              Title="LoginVue">
     <VerticalStackLayout>
-        <Grid RowDefinitions="*, *, *, *, *, *" ColumnDefinitions="*">
+        <Grid RowDefinitions="*, *, *, *, *, *, *" ColumnDefinitions="*">
             <Border Grid.ColumnSpan="1" Stroke="Black" StrokeShape="Ellipse" Padding="16,2" HorizontalOptions="Center">
                 <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif" IsAnimationPlaying="True" HeightRequest="150"/>
             </Border>
             <StackLayout Grid.Row="1" Grid.ColumnSpan="1">
                 <Label Text="Enchère en os" HorizontalOptions="Center"/>
-                <Frame IsVisible="{Binding IsErreurVisible}"  BackgroundColor="#B80C09" HorizontalOptions="CenterAndExpand" Margin="5,5,5,5" Padding="5,5,5,5">
+                <Frame BackgroundColor="#B80C09" HorizontalOptions="CenterAndExpand" Margin="5,5,5,5" Padding="5,5,5,5">
                     <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center" TextColor="White"/>
                 </Frame>
             </StackLayout>
@@ -19,24 +19,12 @@
                 <Entry x:Name="entryMail" Placeholder="Mail" Keyboard="Email" WidthRequest="200"/>
             </Border>
 
-            <Border Grid.Row="3"
-                    Grid.ColumnSpan="1"
-                    Stroke="Black"
-                    Padding="16,2"
-                    HorizontalOptions="Center">
-                <Entry x:Name="entryPass"
-                       Placeholder="Mot de passe"
-                       IsPassword ="True"
-                       WidthRequest="200"/>
+            <Border Grid.Row="3" Grid.ColumnSpan="1" Stroke="Black" Padding="16,2" HorizontalOptions="Center">
+                <Entry x:Name="entryPass" Placeholder="Mot de passe" IsPassword ="True" WidthRequest="200"/>
             </Border>
 
-            <Button Grid.Row="4"
-                    Grid.ColumnSpan="1"
-                    Text="Se connecter"
-                    VerticalOptions="Center"
-                    HorizontalOptions="Center"
-                    Clicked="btnLogin_Clicked"/>
-            
+            <Button Grid.Row="4" Grid.ColumnSpan="1" Text="Se connecter" VerticalOptions="Center" HorizontalOptions="Center" Clicked="btnLogin_Clicked"/>
+
             <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center">
                 <Label Text="Vous n'avez pas de compte ? Cliquez "/>
                 <Label Text=" ici" TextColor="Blue">
