@@ -21,8 +21,29 @@ public partial class UneEnchereClassiqueVue : ContentPage
 
 	private async void btnEcherir_Clicked(object sender, EventArgs e)
 	{
-		float montant = int.Parse(entryEncherir.Text);
+		AnimationEntryEncherir();
+		btnEcherir.IsEnabled = false;
+		float montant = float.Parse(entryEncherir.Text.Replace('.', ','));
+		var bg = entryEncherir.BackgroundColor;
+		if (vueModele.ActualPrice>montant)
+		{
+			entryEncherir.BackgroundColor = Colors.Red;
+		}
 		await APIEnchere.PostEncherir(montant, Session.User, vueModele.Enchere);
 		vueModele.AfficherLastSixOffers();
-	}
+		entryEncherir.Text = String.Empty;
+        btnEcherir.IsEnabled = true;
+		entryEncherir.BackgroundColor = bg;
+    }
+
+	private async void AnimationEntryEncherir()
+	{
+		await entryEncherir.TranslateTo(5, 0, 30);
+		for (int i = 0; i < 3; i++) 
+		{
+			await entryEncherir.TranslateTo(-5, 0, 60);
+			await entryEncherir.TranslateTo(5, 0, 60);
+		}
+        await entryEncherir.TranslateTo(0, 0, 30);
+    }
 }

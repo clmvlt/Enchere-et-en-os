@@ -9,6 +9,7 @@
             <Label Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="CenterAndExpand" FontSize="50"/>
             <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="600" HorizontalOptions="CenterAndExpand"/>
             <Label Text="{Binding Enchere.DateDebut, StringFormat='Date de début : {0}'}" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="{Binding ActualPrice, StringFormat='Prix actuel {0}€'}" HorizontalOptions="CenterAndExpand"/>
 
             <Label HorizontalOptions="Center">
                 <Label.Text>

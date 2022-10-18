@@ -19,6 +19,7 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         private int _tempsRestantHeures;
         private int _tempsRestantMinutes;
         private int _tempsRestantSecondes;
+        private float _actualPrice;
         private ObservableCollection<Offer> _offers;
 
         public bool OnCancel = false;
@@ -72,6 +73,11 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             get { return _tempsRestantSecondes; }
             set { SetProperty(ref _tempsRestantSecondes, value); }
         }
+        public float ActualPrice
+        {
+            get { return _actualPrice; }
+            set { SetProperty(ref _actualPrice, value); }
+        }
         #endregion
 
         #region Methodes
@@ -106,6 +112,7 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
                 while (true)
                 {
                     AfficherLastSixOffers();
+                    RefreshActualPrice();
                     Thread.Sleep(5000);
                 }
             });
@@ -120,6 +127,30 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         {
             var tempOffers = await APIEnchere.GetLastSixOffer(Enchere.Id);
             var actuelOffers = this.Offers;
+            if (tempOffers == null || actuelOffers == null) return;
+            if (tempOffers.Count != actuelOffers.Count)
+            {
+                this.Offers = tempOffers;
+            }
+            else
+            {
+                for (int i = 0; i < tempOffers.Count; i++)
+                {
+                    if (tempOffers[i].Pseudo != actuelOffers[i].Pseudo ||
+                        tempOffers[i].Photo != actuelOffers[i].Photo ||
+                        tempOffers[i].PrixEnchere != actuelOffers[i].PrixEnchere)
+                    {
+                        this.Offers = tempOffers;
+                        return;
+                    }
+                }
+            }
+        }
+
+        public async void RefreshActualPrice()
+        {
+            Encherir encherePrix = await APIEnchere.GetActuelPrice(this.Enchere.Id);
+            if (encherePrix != null) ActualPrice = encherePrix.PrixEnchere;
         }
         #endregion
     }

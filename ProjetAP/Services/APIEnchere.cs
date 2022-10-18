@@ -35,6 +35,11 @@ namespace ProjetAP.Services
             return res.First();
         }
 
+        public static async Task<Encherir> GetActuelPrice(int id)
+        {
+            return await _apiServices.GetOneAsyncID<Encherir>("api/getActualPrice", id.ToString());
+        }
+
         public static async Task<ObservableCollection<Enchere>> GetEncheresFutures()
         {
             var res = await _apiServices.GetAllAsync<Enchere>("api/getEncheresFutures", Enchere.CollClasse);
@@ -49,10 +54,10 @@ namespace ProjetAP.Services
             return res;
         }
 
-        public static async Task PostEncherir(float montant, User user, Enchere enchere)
+        public static async Task<int> PostEncherir(float montant, User user, Enchere enchere)
         {
             Encherir encherir = new Encherir(enchere.Id, montant, new DateTime(), enchere, user);
-            await _apiServices.PostAsync<Encherir>(encherir, "api/postEncherir");
+            return await _apiServices.PostAsync<Encherir>(encherir, "api/postEncherir");
         }
         #endregion
     }
