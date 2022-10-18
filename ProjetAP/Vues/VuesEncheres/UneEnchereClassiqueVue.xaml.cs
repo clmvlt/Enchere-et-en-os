@@ -23,6 +23,6 @@ public partial class UneEnchereClassiqueVue : ContentPage
 	{
 		float montant = int.Parse(entryEncherir.Text);
 		await APIEnchere.PostEncherir(montant, Session.User, vueModele.Enchere);
-		vueModele.RefreshEnchere();
+		vueModele.AfficherLastSixOffers();
 	}
 }

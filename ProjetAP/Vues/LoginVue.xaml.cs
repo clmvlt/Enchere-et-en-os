@@ -1,7 +1,7 @@
 using ProjetAP.Modeles;
 using ProjetAP.Services;
 using ProjetAP.VuesModeles;
-
+using System.Windows.Input;
 
 namespace ProjetAP.Vues;
 
@@ -17,6 +17,7 @@ public partial class LoginVue : ContentPage
 
 	private async void btnLogin_Clicked(object sender, EventArgs e)
 	{
+		ResetErreurMsg();
 		var mail = entryMail.Text;
 		var pass = entryPass.Text;
 		User user = await APIUser.GetUserWithMailAndPass(mail, pass);
@@ -29,8 +30,5 @@ public partial class LoginVue : ContentPage
         }
     }
 
-	private void btnSignIn_Clicked(object sender, EventArgs e)
-	{
-		App.Current.MainPage = new SingInVue();
-	}
+	private void ResetErreurMsg() => vueModele.ErreurMsg = null;
 }

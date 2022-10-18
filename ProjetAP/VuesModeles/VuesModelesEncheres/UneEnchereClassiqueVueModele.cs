@@ -28,6 +28,7 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         public UneEnchereClassiqueVueModele(Enchere enchere)
         {
             _enchere = enchere;
+            Offers = new ObservableCollection<Offer>();
 
             tmps = new DecompteTimer();
             DateTime datefin = new DateTime(2022, 12, 13);
@@ -104,7 +105,7 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             {
                 while (true)
                 {
-                    RefreshEnchere();
+                    AfficherLastSixOffers();
                     Thread.Sleep(5000);
                 }
             });
@@ -113,12 +114,12 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         public async void RefreshEnchere()
         {
             this.Enchere = await APIEnchere.GetEnchere(this.Enchere.Id);
-            Offers = await APIEnchere.GetLastSixOffer(Enchere.Id);
         }
 
-        private async void AfficherLastSixOffers()
+        public async void AfficherLastSixOffers()
         {
-            Offers = await APIEnchere.GetLastSixOffer(Enchere.Id);
+            var tempOffers = await APIEnchere.GetLastSixOffer(Enchere.Id);
+            var actuelOffers = this.Offers;
         }
         #endregion
     }
