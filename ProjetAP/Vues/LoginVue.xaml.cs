@@ -36,7 +36,7 @@ public partial class LoginVue : ContentPage
         var mail = entryMail.Text;
 		var pass = entryPass.Text;
 		User user = await APIUser.GetUserWithMailAndPass(mail, pass);
-		this.StopAnimationBtnLogin();
+		this.SetAnimationBtnLogin(false);
 		if (user == null)
 		{
 			vueModele.SetErreurMsg("Erreur lors de la connexion.");
@@ -48,27 +48,30 @@ public partial class LoginVue : ContentPage
 
 	private void StartAnimationBtnLogin()
 	{
-		_isBtnLoginAnimated = true;
-		btnLogin.IsEnabled = false;
+		SetAnimationBtnLogin(true);
+        vueModele.IsBtnLoginEnabled = false;
 		Task.Run(() =>
 		{
 			while (_isBtnLoginAnimated)
 			{
-				btnLogin.Text = "Chargement.";
+				vueModele.BtnLoginText = "Chargement";
                 Thread.Sleep(200);
-                btnLogin.Text = "Chargement..";
+				vueModele.BtnLoginText = "Chargement.";
                 Thread.Sleep(200);
-                btnLogin.Text = "Chargement...";
+                vueModele.BtnLoginText = "Chargement..";
+                Thread.Sleep(200);
+                vueModele.BtnLoginText = "Chargement...";
                 Thread.Sleep(200);
             }
-		});
+
+			vueModele.BtnLoginText = "Se connecter";
+			vueModele.IsBtnLoginEnabled = true;
+        });
 	}
 
-	private void StopAnimationBtnLogin()
+	private void SetAnimationBtnLogin(bool param)
 	{
-		_isBtnLoginAnimated = false;
-		btnLogin.Text = "Se connecter";
-		btnLogin.IsEnabled = true;
+		_isBtnLoginAnimated = param;
 	}
     #endregion
 

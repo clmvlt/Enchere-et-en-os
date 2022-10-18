@@ -17,6 +17,7 @@ namespace ProjetAP.VuesModeles
         private string _erreurMsg;
         private bool _isErreurVisible;
         private string _btnLoginText;
+        private bool _isBtnLoginEnabled;
         #endregion
 
         #region Constructeurs
@@ -25,6 +26,7 @@ namespace ProjetAP.VuesModeles
         {
             ErreurMsg = string.Empty;
             BtnLoginText = "Se connecter";
+            IsBtnLoginEnabled = true;
         }
 
         #endregion
@@ -45,8 +47,9 @@ namespace ProjetAP.VuesModeles
                 });
         }
 
-        public string BtnLoginText { get => _btnLoginText; set => SetProperty(ref _btnLoginText, value) }
+        public string BtnLoginText { get => _btnLoginText; set => SetProperty(ref _btnLoginText, value); }
         public bool IsErreurVisible { get => _isErreurVisible; set => SetProperty(ref _isErreurVisible, value); }
+        public bool IsBtnLoginEnabled { get => _isBtnLoginEnabled; set => SetProperty(ref _isBtnLoginEnabled, value); }
         #endregion
 
         #region Methodes
