@@ -21,7 +21,8 @@ namespace ProjetAP.VuesModeles
         #region Constructeurs
 
         public LoginVueModele()
-        { 
+        {
+            ErreurMsg = string.Empty;
         }
 
         #endregion
@@ -41,7 +42,7 @@ namespace ProjetAP.VuesModeles
                     App.Current.MainPage = new SingInVue();
                 });
         }
-        public bool IsErreurVisible { get => _isErreurVisible; set => _isErreurVisible = value; }
+        public bool IsErreurVisible { get => _isErreurVisible; set => SetProperty(ref _isErreurVisible, value); }
         #endregion
 
         #region Methodes

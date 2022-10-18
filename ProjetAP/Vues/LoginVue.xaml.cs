@@ -17,18 +17,16 @@ public partial class LoginVue : ContentPage
 
 	private async void btnLogin_Clicked(object sender, EventArgs e)
 	{
-		ResetErreurMsg();
-		var mail = entryMail.Text;
+        vueModele.SetErreurMsg(string.Empty);
+        var mail = entryMail.Text;
 		var pass = entryPass.Text;
 		User user = await APIUser.GetUserWithMailAndPass(mail, pass);
 		if (user == null)
 		{
-			vueModele.ErreurMsg = "Erreur lors de la connexion.";
+			vueModele.SetErreurMsg("Erreur lors de la connexion.");
         } else
 		{
 			Session.Login(user);
         }
     }
-
-	private void ResetErreurMsg() => vueModele.ErreurMsg = null;
 }
