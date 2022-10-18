@@ -5,37 +5,31 @@
              Title="LoginVue">
     <VerticalStackLayout>
         <Grid RowDefinitions="300, 200, *, *, 100, 100, 300" ColumnDefinitions="*">
-
+            <BoxView Color="Transparent"></BoxView>
             <Border Grid.ColumnSpan="1" Stroke="Black" StrokeShape="Ellipse" Padding="16,2" HorizontalOptions="Center" VerticalOptions="End">
                 <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif" IsAnimationPlaying="True" HeightRequest="150"/>
             </Border>
-
             <StackLayout Grid.Row="1" Grid.ColumnSpan="1">
-                <Label Text="Enchère en os" HorizontalOptions="Center"/>
+                <Label Text="Enchère en os" HorizontalOptions="Center" FontFamily="Lobster" FontSize="35"/>
                 <Frame IsVisible="{Binding IsErreurVisible}" BackgroundColor="#B80C09" HorizontalOptions="CenterAndExpand" Margin="5,5,5,5" Padding="5,5,5,5">
                     <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center" TextColor="White"/>
                 </Frame>
             </StackLayout>
-
             <Border Grid.Row="2" Grid.ColumnSpan="1" Stroke="Black" Padding="16,2" HorizontalOptions="Center">
                 <Entry x:Name="entryMail" Placeholder="Mail" Keyboard="Email" WidthRequest="200"/>
             </Border>
-
             <Border Grid.Row="3" Grid.ColumnSpan="1" Stroke="Black" Padding="16,2" HorizontalOptions="Center" VerticalOptions="Center">
                 <Entry x:Name="entryPass" Placeholder="Mot de passe" IsPassword ="True" WidthRequest="200"/>
             </Border>
-
             <Button x:Name="btnLogin" IsEnabled="{Binding IsBtnLoginEnabled}" Grid.Row="4" Grid.ColumnSpan="1" Text="{Binding BtnLoginText}" VerticalOptions="Center" HorizontalOptions="Center" Clicked="btnLogin_Clicked"/>
-
             <HorizontalStackLayout Grid.Row="5" HorizontalOptions="Center" VerticalOptions="End">
                 <Label Text="Vous n'avez pas de compte ? Cliquez "/>
-                <Label Text=" ici" TextColor="Blue">
+                <Label Text="ici" TextColor="Blue" TextDecorations="Underline">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Command="{Binding TapCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
             </HorizontalStackLayout>
-
         </Grid>
     </VerticalStackLayout>
 </ContentPage>

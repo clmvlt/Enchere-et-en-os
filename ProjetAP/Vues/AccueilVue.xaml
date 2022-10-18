@@ -4,11 +4,12 @@
              x:Class="ProjetAP.Vues.AccueilVue"
              Title="AccueilVue">
     <VerticalStackLayout>
-        <Label Margin="0, 60, 0, 30" Text="{Binding  User.Pseudo, StringFormat='Connecté en tant que {0}'}"/>
-
-        <Button Text="Enchères classiques" x:Name="btnAffichageEncheresClassiques" Clicked="btnAffichageEncheresClassiques_Clicked"/>
-        <Button Text="Enchères inversées" x:Name="btnAffichageEncheresInversees"/>
-        <Button Text="Enchères mystères" x:Name="btnAffichageEncheresMysteres"/>
-        <Button Margin="0, 60, 0, 0" Text="Déconnexion" x:Name="btnLogout" Clicked="btnLogout_Clicked" BackgroundColor="Red"/>
+        <Grid RowDefinitions="*, *, *, *, *" ColumnDefinitions="*">
+            <Label Grid.ColumnSpan="1" Margin="0, 60, 0, 30" Text="{Binding  User.Pseudo, StringFormat='Connecté en tant que {0}'}"/>
+            <Button Grid.Row="1" Grid.ColumnSpan="1" Text="Enchères classiques" x:Name="btnAffichageEncheresClassiques" Clicked="btnAffichageEncheresClassiques_Clicked"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="1" Text="Enchères inversées" x:Name="btnAffichageEncheresInversees"/>
+            <Button Grid.Row="3" Grid.ColumnSpan="1" Text="Enchères mystères" x:Name="btnAffichageEncheresMysteres"/>
+            <Button Grid.Row="4" Grid.ColumnSpan="1" Margin="0, 60, 0, 0" Text="Déconnexion" x:Name="btnLogout" Clicked="btnLogout_Clicked" BackgroundColor="Red"/>
+        </Grid>
     </VerticalStackLayout>
 </ContentPage>
