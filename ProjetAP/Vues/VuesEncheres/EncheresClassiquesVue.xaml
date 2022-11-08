@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.VuesEncheres.EncheresClassiquesVue"
              Title="EncheresClassiquesVue">
-    <ScrollView Margin="0,25,0,0">
+    <ScrollView Margin="0,30,0,0">
         <VerticalStackLayout>
+            <Button x:Name="btnRetour" Text="Retour" Clicked="btnRetour_Clicked" WidthRequest="200" HorizontalOptions="Start" />
             <CollectionView ItemsSource="{Binding EncheresEnCours}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

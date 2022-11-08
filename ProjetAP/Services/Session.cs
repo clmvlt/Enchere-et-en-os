@@ -18,14 +18,16 @@ namespace ProjetAP.Services
         }
 
         public static bool IsLogged() => _user != null;
-        public static void Login(User user)
+        public static async void Login(User user)
         {
             _user = user;
+            await App.Current.MainPage.TranslateTo(App.Current.MainPage.Width, 0, 600);
             App.Current.MainPage = new AccueilVue();
         }
-        public static void Logout()
+        public static async void Logout()
         {
             _user = null;
+            await App.Current.MainPage.TranslateTo(-App.Current.MainPage.Width, 0, 600);
             App.Current.MainPage = new LoginVue();
         }
 

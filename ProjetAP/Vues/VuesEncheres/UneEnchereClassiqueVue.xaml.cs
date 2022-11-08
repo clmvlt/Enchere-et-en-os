@@ -46,4 +46,9 @@ public partial class UneEnchereClassiqueVue : ContentPage
 		}
         await entryEncherir.TranslateTo(0, 0, 30);
     }
+
+	private void btnEcherirAuto_Clicked(object sender, EventArgs e)
+	{
+		vueModele.ThreadAutoEnchere(int.Parse(entryPlafond.Text), int.Parse(entrySecs.Text));
+	}
 }

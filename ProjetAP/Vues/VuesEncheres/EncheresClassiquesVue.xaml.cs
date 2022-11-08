@@ -19,4 +19,9 @@ public partial class EncheresClassiquesVue : ContentPage
 		Enchere selectedEnchere = btn.BindingContext as Enchere;
 		App.Current.MainPage = new UneEnchereClassiqueVue(selectedEnchere);
 	}
+
+	private void btnRetour_Clicked(object sender, EventArgs e)
+	{
+		App.Current.MainPage = new AccueilVue();
+	}
 }

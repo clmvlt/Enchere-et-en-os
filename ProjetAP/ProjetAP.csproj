@@ -50,6 +50,7 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+	  <PackageReference Include="Skybrud.Essentials" Version="1.1.42" />
 	</ItemGroup>
 
 	<ItemGroup>

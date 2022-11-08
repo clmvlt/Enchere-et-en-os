@@ -118,6 +118,22 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             });
         }
 
+        public async void ThreadAutoEnchere(int plafond, int secondes)
+        {
+            await Task.Run(async () =>
+            {
+                while (plafond > ActualPrice + 1 && Session.IsLogged())
+                {
+                    Offer lastOffer = Offers.First();
+                    if (!lastOffer.Pseudo.ToLower().Equals(Session.User.Pseudo.ToLower()) && lastOffer.PrixEnchere < ActualPrice + 1)
+                    {
+                        await APIEnchere.PostEncherir(ActualPrice + 1, Session.User, Enchere);
+                    }
+                    Thread.Sleep(secondes * 1000);
+                }
+            });
+        }
+
         public async void RefreshEnchere()
         {
             this.Enchere = await APIEnchere.GetEnchere(this.Enchere.Id);

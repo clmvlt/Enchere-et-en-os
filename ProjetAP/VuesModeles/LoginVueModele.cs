@@ -18,6 +18,7 @@ namespace ProjetAP.VuesModeles
         private bool _isErreurVisible;
         private string _btnLoginText;
         private bool _isBtnLoginEnabled;
+        private int _columnSize;
         #endregion
 
         #region Constructeurs
@@ -50,6 +51,8 @@ namespace ProjetAP.VuesModeles
         public string BtnLoginText { get => _btnLoginText; set => SetProperty(ref _btnLoginText, value); }
         public bool IsErreurVisible { get => _isErreurVisible; set => SetProperty(ref _isErreurVisible, value); }
         public bool IsBtnLoginEnabled { get => _isBtnLoginEnabled; set => SetProperty(ref _isBtnLoginEnabled, value); }
+
+        
         #endregion
 
         #region Methodes
