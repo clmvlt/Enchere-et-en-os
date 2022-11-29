@@ -9,41 +9,32 @@ using System.Threading.Tasks;
 
 namespace ProjetAP.VuesModeles.VuesModelesEncheres
 {
-    public class EncheresClassiquesVueModele : BaseVueModele
+    public class EncheresInverseesVueModele : BaseVueModele
     {
         #region Attribus
         private ObservableCollection<Enchere> _encheresEnCoursInversees;
-        private ObservableCollection<Enchere> _encheresFutures;
         #endregion
 
         #region Constructeur
-        public EncheresClassiquesVueModele()
+        public EncheresInverseesVueModele()
         {
             AfficherLesEncheres();
         }
         #endregion
 
         #region Guetteurs Setteurs
-        public ObservableCollection<Enchere> EncheresEnCours
+        public ObservableCollection<Enchere> EncheresEnCoursInversees
         {
             get => _encheresEnCoursInversees;
             set => SetProperty(ref _encheresEnCoursInversees, value);
-        }
-
-        public ObservableCollection<Enchere> EncheresFutures
-        {
-            get => _encheresFutures;
-            set => SetProperty(ref _encheresFutures, value);
         }
         #endregion
 
         #region Methode
         public async void AfficherLesEncheres()
         {
-            EncheresEnCours = await APIEnchere.GetEncheresEnCours(1);
-            EncheresFutures = await APIEnchere.GetEncheresFutures();
+            EncheresEnCoursInversees = await APIEnchere.GetEncheresEnCours(2);
         }
         #endregion
-
     }
 }

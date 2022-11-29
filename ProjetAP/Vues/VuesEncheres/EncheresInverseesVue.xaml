@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ProjetAP.Vues.VuesEncheres.EncheresInverseesVue"
+             Title="EncheresInverseesVue">
+    <ScrollView Margin="0,30,0,0">
+        <VerticalStackLayout>
+            <Button x:Name="btnRetour" Text="Retour" Clicked="btnRetour_Clicked" WidthRequest="200" HorizontalOptions="Start" />
+            <CollectionView ItemsSource="{Binding EncheresEnCoursInversees}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Image Grid.Column="0" Source="{Binding LeProduit.Photo}" HeightRequest="200"/>
+                            <StackLayout Grid.Column="1">
+                                <Label Grid.Column="1" Text="{Binding LeProduit.Nom}"/>
+                                <DatePicker Grid.Column="1" Format="dd/mm/yyyy" Date="{Binding DateDebut}"/>
+                                <DatePicker Grid.Column="1" Format="dd/mm/yyyy" Date="{Binding DateFin}"/>
+                                <Label Grid.Column="1" Text="{Binding LeProduit.PrixReel, StringFormat='{0}€'}"/>
+                                <Button x:Name='btnViewEnchere' Text="Voir l'enchère" WidthRequest="200" Clicked="btnViewEnchere_Clicked"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

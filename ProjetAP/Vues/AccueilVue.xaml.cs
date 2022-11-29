@@ -20,4 +20,9 @@ public partial class AccueilVue : ContentPage
 	{
 		App.Current.MainPage = new EncheresClassiquesVue();
 	}
+
+    private void btnAffichageEncheresInversees_Clicked(object sender, EventArgs e)
+    {
+        App.Current.MainPage = new EncheresInverseesVue();
+    }
 }

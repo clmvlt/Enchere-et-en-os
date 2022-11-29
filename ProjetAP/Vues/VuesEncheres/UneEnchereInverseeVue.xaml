@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereClassiqueVue"
-             Title="UneEnchereClassiqueVue">
+             x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereInverseeVue"
+             Title="UneEnchereInverseeVue">
     <ScrollView Margin="0,30,0,0">
         <VerticalStackLayout Margin="30">
             <Button x:Name="btnRetour" Text="Retour" WidthRequest="100" HorizontalOptions="Start" Clicked="btnRetour_Clicked" />
@@ -25,34 +25,9 @@
 
             <Label Text="{Binding Enchere.PrixReserve, StringFormat='Prix réservé : {0}€'}" HorizontalOptions="Center" FontSize="20" />
             <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix Départ : {0}€'}" HorizontalOptions="Center" FontSize="20" />
-            
-            <Label Margin="0,50,0,20" Text="Liste des 6 derniers offeurs :" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
-            <CollectionView ItemsSource="{Binding Offers}" HorizontalOptions="Center">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Label>
-                            <Label.Text>
-                                <MultiBinding StringFormat="{}{0} pour {1}€">
-                                    <Binding Path="Pseudo" />
-                                    <Binding Path="PrixEnchere" />
-                                </MultiBinding>
-                            </Label.Text>
-                        </Label>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
 
-            <Label Text="Encherir :" HorizontalOptions="Center"/>
-            <Entry x:Name="entryEncherir" HorizontalOptions="Center"/>
-            <Button HorizontalOptions="Center" WidthRequest="200" Text="Enchérir" x:Name="btnEcherir" Clicked="btnEcherir_Clicked"/>
-        
-            <Label Margin="0,30,0,20" Text="Enchérir automatiquement" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
-            <Label Text="Plafond :" HorizontalOptions="Center"/>
-            <Entry HorizontalOptions="Center" x:Name="entryPlafond"/>
-            <Label Text="Secondes" HorizontalOptions="Center"/>
-            <Entry HorizontalOptions="Center" x:Name="entrySecs"/>
-            <Button HorizontalOptions="Center" WidthRequest="200" Text="Commencer" x:Name="btnEcherirAuto" Clicked="btnEcherirAuto_Clicked"/>
-
+            <Label Text="Acheter :" HorizontalOptions="Center"/>
+            <Button HorizontalOptions="Center" WidthRequest="200" Text="Acheter" x:Name="btnAcheter" Clicked="btnAcheter_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -30,7 +30,6 @@ public partial class UneEnchereClassiqueVue : ContentPage
 			entryEncherir.BackgroundColor = Colors.Red;
 		}
 		await APIEnchere.PostEncherir(montant, Session.User, vueModele.Enchere);
-		vueModele.AfficherLastSixOffers();
 		entryEncherir.Text = String.Empty;
         btnEcherir.IsEnabled = true;
 		entryEncherir.BackgroundColor = bg;

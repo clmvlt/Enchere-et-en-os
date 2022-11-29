@@ -21,9 +21,9 @@ namespace ProjetAP.Services
         #endregion
 
         #region Methodes
-        public static async Task<ObservableCollection<Enchere>> GetEncheresEnCours()
+        public static async Task<ObservableCollection<Enchere>> GetEncheresEnCours(int idtype)
         {
-            var res = await _apiServices.GetAllAsync<Enchere>("api/getEncheresEnCours", Enchere.CollClasse);
+            var res = await _apiServices.GetAllAsyncID<Enchere>("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", idtype);
             Enchere.CollClasse.Clear();
             return res;
         }
@@ -58,6 +58,12 @@ namespace ProjetAP.Services
         {
             Encherir encherir = new Encherir(enchere.Id, montant, new DateTime(), enchere, user);
             return await _apiServices.PostAsync<Encherir>(encherir, "api/postEncherir");
+        }
+
+        public static async Task<int> PostEncherirInversee(float montant, User user, Enchere enchere)
+        {
+            Encherir encherir = new Encherir(enchere.Id, montant, new DateTime(), enchere, user);
+            return await _apiServices.PostAsync<Encherir>(encherir, "api/postEncherirInversee");
         }
         #endregion
     }

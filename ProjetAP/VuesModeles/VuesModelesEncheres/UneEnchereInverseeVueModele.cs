@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace ProjetAP.VuesModeles.VuesModelesEncheres
 {
-    public class UneEnchereClassiqueVueModele : BaseVueModele
+    public class UneEnchereInverseeVueModele : BaseVueModele
     {
-        #region Attribus
+        #region Attributes
         private Enchere _enchere;
 
         private DecompteTimer tmps;
@@ -25,10 +25,10 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         public bool OnCancel = false;
         #endregion
 
-        #region Constructeur
-        public UneEnchereClassiqueVueModele(Enchere enchere)
+        #region Constructeurs
+        public UneEnchereInverseeVueModele(Enchere enchere)
         {
-            _enchere = enchere;
+            Enchere = enchere;
             Offers = new ObservableCollection<Offer>();
 
             tmps = new DecompteTimer();
@@ -37,12 +37,11 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             tmps.Start(interval);
 
             this.GetTimerRemaining();
-            this.AfficherLastSixOffers();
             this.ThreadRefreshEnchere();
         }
         #endregion
 
-        #region Properties
+        #region Properties (Getters/Setters)
         public ObservableCollection<Offer> Offers
         {
             get => _offers;
@@ -80,7 +79,7 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         }
         #endregion
 
-        #region Methodes
+        #region Méthodes
         public void GetTimerRemaining()
         {
 
@@ -111,25 +110,8 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             {
                 while (true)
                 {
-                    AfficherLastSixOffers();
                     RefreshActualPrice();
                     Thread.Sleep(1000);
-                }
-            });
-        }
-
-        public async void ThreadAutoEnchere(int plafond, int secondes)
-        {
-            await Task.Run(async () =>
-            {
-                while (plafond > ActualPrice + 1 && Session.IsLogged())
-                {
-                    Offer lastOffer = Offers.First();
-                    if (!lastOffer.Pseudo.ToLower().Equals(Session.User.Pseudo.ToLower()) && lastOffer.PrixEnchere < ActualPrice + 1)
-                    {
-                        await APIEnchere.PostEncherir(ActualPrice + 1, Session.User, Enchere);
-                    }
-                    Thread.Sleep(secondes * 1000);
                 }
             });
         }
@@ -137,30 +119,6 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         public async void RefreshEnchere()
         {
             this.Enchere = await APIEnchere.GetEnchere(this.Enchere.Id);
-        }
-
-        public async void AfficherLastSixOffers()
-        {
-            var tempOffers = await APIEnchere.GetLastSixOffer(Enchere.Id);
-            var actuelOffers = this.Offers;
-            if (tempOffers == null || actuelOffers == null) return;
-            if (tempOffers.Count != actuelOffers.Count)
-            {
-                this.Offers = tempOffers;
-            }
-            else
-            {
-                for (int i = 0; i < tempOffers.Count; i++)
-                {
-                    if (tempOffers[i].Pseudo != actuelOffers[i].Pseudo ||
-                        tempOffers[i].Photo != actuelOffers[i].Photo ||
-                        tempOffers[i].PrixEnchere != actuelOffers[i].PrixEnchere)
-                    {
-                        this.Offers = tempOffers;
-                        return;
-                    }
-                }
-            }
         }
 
         public async void RefreshActualPrice()
