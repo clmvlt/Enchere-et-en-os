@@ -2,46 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.LoginVue"
-             Title="LoginVue">
-    <VerticalStackLayout VerticalOptions="Start" HeightRequest="500">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+             Title="LoginVue"
+             BackgroundImageSource="https://media.discordapp.net/attachments/670349488614932496/1047159151698129007/5356.jpg">
+    <FlexLayout Direction="Column" AlignItems="Center" JustifyContent="SpaceBetween">
+        <StackLayout>
+            <Border Stroke="Black" StrokeShape="Ellipse">
+                <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif" IsAnimationPlaying="True" MaximumHeightRequest="200"/>
+            </Border>
+            <Label Text="Enchère et en os" HorizontalOptions="Center" FontFamily="Lobster" FontSize="35" TextColor="White"/>
+        </StackLayout>
 
-            <!-- Container 1 (tête de page) -->
-            <StackLayout Grid.Row="0">
-                <Border Stroke="Black" StrokeShape="Ellipse" Padding="16,2" HorizontalOptions="Center" VerticalOptions="End">
-                    <Image Source="https://media.giphy.com/media/cmlcynVFpuZBkaLYe3/giphy.gif" IsAnimationPlaying="True" HeightRequest="150"/>
-                </Border>
-            </StackLayout>
+        <!-- Container 2 (millieu de page) -->
+        <StackLayout>
 
-            <!-- Container 2 (millieu de page) -->
-            <StackLayout Grid.Row="1" >
-                <Label Text="Enchère en os" HorizontalOptions="Center" FontFamily="Lobster" FontSize="35"/>
-                <Frame IsVisible="{Binding IsErreurVisible}" BackgroundColor="#B80C09" HorizontalOptions="CenterAndExpand" Margin="5,5,5,5" Padding="5,5,5,5">
-                    <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center" TextColor="White"/>
-                </Frame>
-                <Border Stroke="Black" Padding="16,2" HorizontalOptions="Center">
-                    <Entry x:Name="entryMail" Placeholder="Mail" Keyboard="Email" WidthRequest="200"/>
-                </Border>
-                <Border Stroke="Black" Padding="16,2" HorizontalOptions="Center" VerticalOptions="Center">
-                    <Entry x:Name="entryPass" Placeholder="Mot de passe" IsPassword ="True" WidthRequest="200"/>
-                </Border>
-                <Button x:Name="btnLogin" IsEnabled="{Binding IsBtnLoginEnabled}" Grid.Row="4" Grid.ColumnSpan="1" Text="{Binding BtnLoginText}" VerticalOptions="Center" HorizontalOptions="Center" Clicked="btnLogin_Clicked"/>
-            </StackLayout>
+            <Frame IsVisible="{Binding IsErreurVisible}" BackgroundColor="#B80C09" HorizontalOptions="Center" Margin="5,5,5,5" Padding="5,5,5,5">
+                <Label Text="{Binding ErreurMsg}" HorizontalOptions="Center" TextColor="White"/>
+            </Frame>
+            <Border Stroke="Black" Margin="0,0,0,5">
+                <Entry x:Name="entryMail" Placeholder="Mail" Keyboard="Email" WidthRequest="200"  VerticalOptions="Center"/>
+            </Border>
+            <Border Stroke="Black" Margin="0,0,0,5">
+                <Entry x:Name="entryPass" Placeholder="Mot de passe" IsPassword ="True" WidthRequest="200" VerticalOptions="Center"/>
+            </Border>
+            <Button x:Name="btnLogin" IsEnabled="{Binding IsBtnLoginEnabled}" Grid.Row="4" Grid.ColumnSpan="1" Text="{Binding BtnLoginText}" VerticalOptions="Center" HorizontalOptions="Center" Clicked="btnLogin_Clicked"/>
+        </StackLayout>
 
-            <!-- Container 3 (pied de page) -->
-            <HorizontalStackLayout Grid.Row="2" HorizontalOptions="Center" VerticalOptions="End">
-                <Label Text="Vous n'avez pas de compte ? Cliquez "/>
-                <Label Text="ici" TextColor="Blue" TextDecorations="Underline">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Command="{Binding TapCommand}" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </HorizontalStackLayout>
-        </Grid>
-    </VerticalStackLayout>
+
+        <!-- Container 3 (pied de page) -->
+        <StackLayout>
+            <Label TextColor="White" Text="Vous n'avez pas de compte ?"/>
+            <Label  HorizontalTextAlignment="Center" Text="Cliquez ici" TextColor="LightBlue" TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TapCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+        </StackLayout>
+    </FlexLayout>
 </ContentPage>

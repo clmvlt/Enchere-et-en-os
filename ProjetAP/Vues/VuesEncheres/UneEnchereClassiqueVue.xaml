@@ -2,12 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereClassiqueVue"
-             Title="UneEnchereClassiqueVue">
+             Title="UneEnchereClassiqueVue"
+             BackgroundImageSource="https://media.discordapp.net/attachments/670349488614932496/1047159151698129007/5356.jpg">
     <ScrollView Margin="0,30,0,0">
         <VerticalStackLayout Margin="30">
             <Button x:Name="btnRetour" Text="Retour" WidthRequest="100" HorizontalOptions="Start" Clicked="btnRetour_Clicked" />
-            <Label Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="CenterAndExpand" FontSize="50"/>
-            <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="600" HorizontalOptions="CenterAndExpand"/>
+            <Label HorizontalTextAlignment="Center" Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="CenterAndExpand" FontSize="40"/>
+            <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="400" HorizontalOptions="CenterAndExpand"/>
             <Label Text="{Binding Enchere.DateDebut, StringFormat='Date de début : {0}'}" HorizontalOptions="CenterAndExpand"/>
             <Label Text="{Binding ActualPrice, StringFormat='Prix actuel {0}€'}" HorizontalOptions="CenterAndExpand"/>
             <Label Text="{Binding Enchere.Id, StringFormat='ID : {0}'}" HorizontalOptions="CenterAndExpand"/>
@@ -25,7 +26,7 @@
 
             <Label Text="{Binding Enchere.PrixReserve, StringFormat='Prix réservé : {0}€'}" HorizontalOptions="Center" FontSize="20" />
             <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix Départ : {0}€'}" HorizontalOptions="Center" FontSize="20" />
-            
+
             <Label Margin="0,50,0,20" Text="Liste des 6 derniers offeurs :" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
             <CollectionView ItemsSource="{Binding Offers}" HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
@@ -43,14 +44,14 @@
             </CollectionView>
 
             <Label Text="Encherir :" HorizontalOptions="Center"/>
-            <Entry x:Name="entryEncherir" HorizontalOptions="Center"/>
+            <Entry BackgroundColor="White" x:Name="entryEncherir" HorizontalOptions="Center"/>
             <Button HorizontalOptions="Center" WidthRequest="200" Text="Enchérir" x:Name="btnEcherir" Clicked="btnEcherir_Clicked"/>
-        
+
             <Label Margin="0,30,0,20" Text="Enchérir automatiquement" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
             <Label Text="Plafond :" HorizontalOptions="Center"/>
-            <Entry HorizontalOptions="Center" x:Name="entryPlafond"/>
+            <Entry BackgroundColor="White" HorizontalOptions="Center" x:Name="entryPlafond"/>
             <Label Text="Secondes" HorizontalOptions="Center"/>
-            <Entry HorizontalOptions="Center" x:Name="entrySecs"/>
+            <Entry BackgroundColor="White" HorizontalOptions="Center" x:Name="entrySecs"/>
             <Button HorizontalOptions="Center" WidthRequest="200" Text="Commencer" x:Name="btnEcherirAuto" Clicked="btnEcherirAuto_Clicked"/>
 
         </VerticalStackLayout>

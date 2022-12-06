@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereInverseeVue"
-             Title="UneEnchereInverseeVue">
+             Title="UneEnchereInverseeVue"
+             BackgroundImageSource="https://media.discordapp.net/attachments/670349488614932496/1047159151698129007/5356.jpg">
     <ScrollView Margin="0,30,0,0">
         <VerticalStackLayout Margin="30">
             <Button x:Name="btnRetour" Text="Retour" WidthRequest="100" HorizontalOptions="Start" Clicked="btnRetour_Clicked" />

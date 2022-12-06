@@ -2,19 +2,31 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.SingInVue"
-             Title="SingInVue">
-    <VerticalStackLayout>
-        <Label Text="Mail :"/>
-        <Entry x:Name="entryMail"/>
-        <Label Text="Pass :"/>
-        <Entry x:Name="entryPass"/>
-        <Label Text="Photo :"/>
-        <Entry x:Name="entryPhoto"/>
-        <Label Text="Pseudo :"/>
-        <Entry x:Name="entryPseudo"/>
-        <Button x:Name="btnSignIn" Text="Créer le compte" Clicked="btnSignIn_Clicked"/>
-        <Button x:Name="btnBack" Text="Retour" Clicked="btnBack_Clicked"/>
+             Title="SingInVue"
+             BackgroundImageSource="https://media.discordapp.net/attachments/670349488614932496/1047159151698129007/5356.jpg">
+    <FlexLayout Direction="Row" AlignItems="Center" JustifyContent="Center">
+        <StackLayout MinimumWidthRequest="300" MaximumWidthRequest="300">
 
-        <Label Text="{Binding ResEnr}"/>
-    </VerticalStackLayout>
+            <Label Text="Mail :"/>
+            <Border Stroke="white" >
+                <Entry x:Name="entryMail" Placeholder="exemple@gmail.com" PlaceholderColor="Wheat" TextColor="White" ClearButtonVisibility="WhileEditing"/>
+            </Border>
+            <Label Text="Pass :"/>
+            <Border Stroke="white" >
+                <Entry x:Name="entryPass" IsPassword="True" TextColor="White" ClearButtonVisibility="WhileEditing" Placeholder="Pass" PlaceholderColor="Wheat"/>
+            </Border>
+            <Label Text="Photo :"/>
+            <Border Stroke="white" >
+                <Entry x:Name="entryPhoto" Placeholder="https://maphoto.com/exemple.png" PlaceholderColor="Wheat" TextColor="White" ClearButtonVisibility="WhileEditing"/>
+            </Border>
+            <Label Text="Pseudo :"/>
+            <Border Stroke="white" >
+                <Entry x:Name="entryPseudo" TextColor="White" ClearButtonVisibility="WhileEditing"/>
+            </Border>
+            <Button x:Name="btnSignIn" Text="Créer le compte" Clicked="btnSignIn_Clicked" Margin="0,5,0,5"/>
+            <Button x:Name="btnBack" Text="Retour" Clicked="btnBack_Clicked"/>
+
+            <Label Text="{Binding ResEnr}"/>
+        </StackLayout>
+    </FlexLayout>
 </ContentPage>
