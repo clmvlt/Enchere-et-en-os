@@ -6,6 +6,7 @@
              BackgroundImageSource="https://media.discordapp.net/attachments/670349488614932496/1047159151698129007/5356.jpg">
     <FlexLayout Direction="Column" AlignItems="Start" JustifyContent="SpaceBetween">
         <StackLayout>
+            <!--AAAAAAAH-->
             <Grid RowDefinitions="*, *, *, *, *" ColumnDefinitions="*">
                 <Label Grid.ColumnSpan="1" Margin="0,50,0,10" Text="{Binding  User.Pseudo, StringFormat='Connecté en tant que {0}'}" TextColor="White" TextDecorations="Underline" FontSize="20" HorizontalOptions="Center"/>
                 <Button Grid.Row="1" Grid.ColumnSpan="1" Text="Enchères classiques" x:Name="btnAffichageEncheresClassiques" Clicked="btnAffichageEncheresClassiques_Clicked" WidthRequest="300"/>
