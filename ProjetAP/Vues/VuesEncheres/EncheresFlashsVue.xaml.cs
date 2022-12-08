@@ -16,7 +16,7 @@ public partial class EncheresFlashsVue : ContentPage
     {
         Button btn = sender as Button;
         Enchere selectedEnchere = btn.BindingContext as Enchere;
-        App.Current.MainPage = new UneEnchereClassiqueVue(selectedEnchere);
+        App.Current.MainPage = new UneEnchereFlashVue(selectedEnchere);
     }
 
     private void btnRetour_Clicked(object sender, EventArgs e)

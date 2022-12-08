@@ -3,10 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereFlashVue"
              Title="UneEnchereFlashVue">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView Margin="0,30,0,0">
+        <VerticalStackLayout Margin="30">
+            <FlexLayout WidthRequest="500" HeightRequest="500">
+                <Image Source="{Binding Enchere.LeProduit.Photo}" Margin="0, 0, 0, 0" WidthRequest="500" HeightRequest="500" HorizontalOptions="Center"/>
+                <BoxView WidthRequest="150" HeightRequest="150" Color="Black" Margin="0, 0, 0, 0"/>
+                <BoxView WidthRequest="150" HeightRequest="150" Color="Red" Margin="200, 0, 0, 0"/>
+                <BoxView WidthRequest="150" HeightRequest="150" Color="Green" Margin="200, 0, 0, 0"/>
+                <BoxView WidthRequest="150" HeightRequest="150" Color="Yellow" Margin="200, 0, 0, 0"/>
+            </FlexLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
