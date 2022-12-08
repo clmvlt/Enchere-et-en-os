@@ -3,10 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ProjetAP.Vues.VuesEncheres.EncheresFlashsVue"
              Title="EncheresFlashsVue">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ScrollView Margin="0,30,0,0">
+        <VerticalStackLayout>
+            <Button x:Name="btnRetour" Text="Retour" Clicked="btnRetour_Clicked" WidthRequest="200" HorizontalOptions="Start" />
+            <CollectionView ItemsSource="{Binding EncheresFlashs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border>
+                            <FlexLayout Padding="10">
+                                <Image Source="{Binding LeProduit.Photo}" HeightRequest="200" />
+                                <StackLayout Padding="10,0,0,0" WidthRequest="550" FlowDirection="MatchParent" >
+                                    <Label Padding="2" TextColor="White" Text="{Binding LeProduit.Nom}" FontAttributes="Bold" />
+                                    <DatePicker Format="dd/mm/yyyy" Date="{Binding DateDebut}" BackgroundColor="White"/>
+                                    <DatePicker Format="dd/mm/yyyy" Date="{Binding DateFin}" BackgroundColor="White"/>
+                                    <Label TextColor="White" Text="{Binding LeProduit.PrixReel, StringFormat='{0}€'}" FontAttributes="Bold"/>
+                                    <Button x:Name='btnViewEnchere' Text="Voir l'enchère"  Clicked="btnViewEnchere_Clicked"/>
+                                </StackLayout>
+                            </FlexLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
