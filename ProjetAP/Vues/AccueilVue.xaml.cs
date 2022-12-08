@@ -25,4 +25,9 @@ public partial class AccueilVue : ContentPage
     {
         App.Current.MainPage = new EncheresInverseesVue();
     }
+
+    private void btnAffichageEncheresFlashs_Clicked(object sender, EventArgs e)
+    {
+        App.Current.MainPage = new EncheresFlashsVue();
+    }
 }
