@@ -4,14 +4,14 @@
              x:Class="ProjetAP.Vues.VuesEncheres.UneEnchereInverseeVue"
              Title="UneEnchereInverseeVue"
              BackgroundImageSource="https://media.discordapp.net/attachments/670349488614932496/1047159151698129007/5356.jpg">
-    <ScrollView Margin="0,30,0,0">
+    <ScrollView Margin="0,15,0,0">
         <VerticalStackLayout Margin="30">
             <Button x:Name="btnRetour" Text="Retour" WidthRequest="100" HorizontalOptions="Start" Clicked="btnRetour_Clicked" />
-            <Label Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="CenterAndExpand" FontSize="50"/>
-            <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="600" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="{Binding Enchere.LeProduit.Nom}" HorizontalOptions="Center"  FontSize="40"/>
+            <Image Source="{Binding Enchere.LeProduit.Photo}" WidthRequest="300" HorizontalOptions="CenterAndExpand"/>
             <Label Text="{Binding Enchere.DateDebut, StringFormat='Date de début : {0}'}" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="{Binding ActualPrice, StringFormat='Prix actuel {0}€'}" HorizontalOptions="CenterAndExpand"/>
-            <Label Text="{Binding Enchere.Id, StringFormat='ID : {0}'}" HorizontalOptions="CenterAndExpand"/>
+            <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix Départ : {0}€'}" HorizontalOptions="Center" FontSize="15" />
+            <Label Text="{Binding ActualPrice, StringFormat='Prix actuel {0}€'}" HorizontalOptions="CenterAndExpand" FontSize="25"/>
 
             <Label HorizontalOptions="Center">
                 <Label.Text>
@@ -23,12 +23,7 @@
                     </MultiBinding>
                 </Label.Text>
             </Label>
-
-            <Label Text="{Binding Enchere.PrixReserve, StringFormat='Prix réservé : {0}€'}" HorizontalOptions="Center" FontSize="20" />
-            <Label Text="{Binding Enchere.PrixDepart, StringFormat='Prix Départ : {0}€'}" HorizontalOptions="Center" FontSize="20" />
-
-            <Label Text="Acheter :" HorizontalOptions="Center"/>
-            <Button HorizontalOptions="Center" WidthRequest="200" Text="Acheter" x:Name="btnAcheter" Clicked="btnAcheter_Clicked"/>
+            <Button Margin="0,10,0,0" HorizontalOptions="Center" WidthRequest="200" Text="Acheter" x:Name="btnAcheter" Clicked="btnAcheter_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

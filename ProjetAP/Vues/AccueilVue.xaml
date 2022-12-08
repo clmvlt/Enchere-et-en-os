@@ -8,7 +8,7 @@
         <StackLayout>
             <!--AAAAAAAH-->
             <Grid RowDefinitions="*, *, *, *, *" ColumnDefinitions="*">
-                <Label Grid.ColumnSpan="1" Margin="0,50,0,10" Text="{Binding  User.Pseudo, StringFormat='Connecté en tant que {0}'}" TextColor="White" TextDecorations="Underline" FontSize="20" HorizontalOptions="Center"/>
+                <Label Grid.ColumnSpan="1" Margin="0,50,0,10" Text="{Binding  User.Pseudo, StringFormat='Connecté en tant que {0}'}" TextColor="White" TextDecorations="Underline" FontSize="20" FontAttributes="Bold" HorizontalOptions="Center"/>
                 <Button Grid.Row="1" Grid.ColumnSpan="1" Text="Enchères classiques" x:Name="btnAffichageEncheresClassiques" Clicked="btnAffichageEncheresClassiques_Clicked" WidthRequest="300"/>
                 <Button Grid.Row="2" Grid.ColumnSpan="1" Text="Enchères inversées" x:Name="btnAffichageEncheresInversees" Clicked="btnAffichageEncheresInversees_Clicked" WidthRequest="300"/>
                 <Button Grid.Row="3" Grid.ColumnSpan="1" Text="Enchères mystères" x:Name="btnAffichageEncheresFlashs" WidthRequest="300" Clicked="btnAffichageEncheresFlashs_Clicked"/>
