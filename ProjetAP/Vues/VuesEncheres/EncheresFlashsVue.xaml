@@ -11,9 +11,8 @@
                     <DataTemplate>
                         <Border>
                             <FlexLayout Padding="10">
-                                <Image Source="{Binding LeProduit.Photo}" HeightRequest="200" />
+                                <Image Source="https://cdn-icons-png.flaticon.com/512/2189/2189123.png" HeightRequest="200" />
                                 <StackLayout Padding="10,0,0,0" WidthRequest="550" FlowDirection="MatchParent" >
-                                    <Label Padding="2" TextColor="White" Text="{Binding LeProduit.Nom}" FontAttributes="Bold" />
                                     <DatePicker Format="dd/mm/yyyy" Date="{Binding DateDebut}" BackgroundColor="White"/>
                                     <DatePicker Format="dd/mm/yyyy" Date="{Binding DateFin}" BackgroundColor="White"/>
                                     <Label TextColor="White" Text="{Binding LeProduit.PrixReel, StringFormat='{0}€'}" FontAttributes="Bold"/>
