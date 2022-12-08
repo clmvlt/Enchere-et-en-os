@@ -9,7 +9,7 @@ public partial class EncheresFlashsVue : ContentPage
     public EncheresFlashsVue()
 	{
 		InitializeComponent();
-		vueModele = new EncheresFlashsVueModele();
+		BindingContext = vueModele = new EncheresFlashsVueModele();
     }
 
     private void btnViewEnchere_Clicked(object sender, EventArgs e)
