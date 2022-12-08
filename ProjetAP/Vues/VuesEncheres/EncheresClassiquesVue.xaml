@@ -12,10 +12,12 @@
                     <DataTemplate >
                         <Border StrokeThickness="0" WidthRequest="300" HeightRequest="400" >
                             <VerticalStackLayout >
-                                <Image Source="{Binding LeProduit.Photo}" WidthRequest="200" />
+                                <Image Source="{Binding LeProduit.Photo}" HeightRequest="200" />
                                 <Label Padding="2" HorizontalOptions="Center" TextColor="White" Text="{Binding LeProduit.Nom}" FontAttributes="Bold" />
-                                <DatePicker Format="dd/mm/yyyy" HorizontalOptions="Center" Date="{Binding DateDebut}" BackgroundColor="White"/>
-                                <DatePicker Format="dd/mm/yyyy" HorizontalOptions="Center" Date="{Binding DateFin}" BackgroundColor="White"/>
+                                <Label Text="Date début :" TextColor="White" FontAttributes="Bold" FontSize="17"/>
+                                <Label Text="{Binding DateDebut}" TextColor="White" />
+                                <Label Text="Date fin :" TextColor="White" FontAttributes="Bold" FontSize="17"/>
+                                <Label Text="{Binding DateFin}" TextColor="White" />
                                 <Label TextColor="White" HorizontalOptions="Center" Text="{Binding LeProduit.PrixReel, StringFormat='{0}€'}" FontAttributes="Bold"/>
                                 <Button x:Name='btnViewEnchere' Text="Voir l'enchère" WidthRequest="200" Clicked="btnViewEnchere_Clicked"/>
                             </VerticalStackLayout>

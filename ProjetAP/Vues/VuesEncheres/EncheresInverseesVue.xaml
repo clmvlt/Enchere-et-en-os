@@ -7,7 +7,7 @@
     <ScrollView Margin="0,30,0,0">
         <VerticalStackLayout>
             <Button x:Name="btnRetour" Text="Retour" Clicked="btnRetour_Clicked" WidthRequest="200" HorizontalOptions="Start" />
-            <CollectionView ItemsSource="{Binding EncheresEnCoursInversees}">
+            <CollectionView ItemsSource="{Binding EncheresEnCoursInversees}" HorizontalOptions="Center">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Border HeightRequest="400" WidthRequest="300" StrokeThickness="0">
