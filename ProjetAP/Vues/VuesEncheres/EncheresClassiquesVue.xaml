@@ -25,6 +25,23 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <CollectionView ItemsSource="{Binding EncheresFutures}" HorizontalOptions="Center">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate >
+                        <Border StrokeThickness="0" WidthRequest="300" HeightRequest="400" >
+                            <VerticalStackLayout >
+                                <Image Source="{Binding LeProduit.Photo}" HeightRequest="200" />
+                                <Label Padding="2" HorizontalOptions="Center" TextColor="White" Text="{Binding LeProduit.Nom}" FontAttributes="Bold" />
+                                <Label Text="Date début :" TextColor="White" FontAttributes="Bold" FontSize="17"/>
+                                <Label Text="{Binding DateDebut}" TextColor="White" />
+                                <Label Text="Date fin :" TextColor="White" FontAttributes="Bold" FontSize="17"/>
+                                <Label Text="{Binding DateFin}" TextColor="White" />
+                                <Label TextColor="White" HorizontalOptions="Center" Text="{Binding LeProduit.PrixReel, StringFormat='{0}€'}" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </VerticalStackLayout>
     </ScrollView>
 

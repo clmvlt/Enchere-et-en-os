@@ -20,12 +20,12 @@ namespace ProjetAP.Modeles
         private bool _visibilite;
         private Magasin _leMagasin;
         private int _prixDepart;
-        private object _tableauFlash;
+        private string _tableauFlash;
         private List<object> _playerFlashes;
         #endregion
 
         #region Constructeur
-        public Enchere(int id, string dateDebut, string dateFin, int prixReserve, Produit leProduit, TypeEnchere leTypeenchere, bool visibilite, Magasin leMagasin, int prixDepart, object tableauFlash, List<object> playerFlashes)
+        public Enchere(int id, string dateDebut, string dateFin, int prixReserve, Produit leProduit, TypeEnchere leTypeenchere, bool visibilite, Magasin leMagasin, int prixDepart, string tableauFlash, List<object> playerFlashes)
         {
             _id = id;
             _dateDebut = dateDebut;
@@ -54,7 +54,7 @@ namespace ProjetAP.Modeles
         public bool Visibilite { get => _visibilite; set => _visibilite = value; }
         public Magasin LeMagasin { get => _leMagasin; set => _leMagasin = value; }
         public int PrixDepart { get => _prixDepart; set => _prixDepart = value; }
-        public object TableauFlash { get => _tableauFlash; set => _tableauFlash = value; }
+        public string TableauFlash { get => _tableauFlash; set => _tableauFlash = value; }
         public List<object> PlayerFlashes { get => _playerFlashes; set => _playerFlashes = value; }
         #endregion
 

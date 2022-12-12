@@ -73,6 +73,12 @@ public partial class LoginVue : ContentPage
 	{
 		_isBtnLoginAnimated = param;
 	}
+
+    private void btnLoginVisiter_Clicked(object sender, EventArgs e)
+    {
+		Session.Login(new User(-1, "", "", "visiteur", ""));
+    }
+
     #endregion
 
 

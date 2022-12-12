@@ -41,16 +41,18 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
 
-            <Label Text="Encherir :" HorizontalOptions="Center"/>
-            <Entry BackgroundColor="White" x:Name="entryEncherir" HorizontalOptions="Center"/>
-            <Button HorizontalOptions="Center" WidthRequest="200" Text="Enchérir" x:Name="btnEcherir" Clicked="btnEcherir_Clicked"/>
+            <VerticalStackLayout IsVisible="{Binding IsUserLogged}">
+                <Label Text="Encherir :" HorizontalOptions="Center"/>
+                <Entry BackgroundColor="White" x:Name="entryEncherir" HorizontalOptions="Center"/>
+                <Button HorizontalOptions="Center" WidthRequest="200" Text="Enchérir" x:Name="btnEcherir" Clicked="btnEcherir_Clicked"/>
 
-            <Label Margin="0,30,0,20" Text="Enchérir automatiquement" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
-            <Label Text="Plafond :" HorizontalOptions="Center"/>
-            <Entry BackgroundColor="White" HorizontalOptions="Center" x:Name="entryPlafond"/>
-            <Label Text="Secondes" HorizontalOptions="Center"/>
-            <Entry BackgroundColor="White" HorizontalOptions="Center" x:Name="entrySecs"/>
-            <Button HorizontalOptions="Center" WidthRequest="200" Text="Commencer" x:Name="btnEcherirAuto" Clicked="btnEcherirAuto_Clicked"/>
+                <Label Margin="0,30,0,20" Text="Enchérir automatiquement" HorizontalOptions="Center" FontSize="17" FontAttributes="Bold"/>
+                <Label Text="Plafond :" HorizontalOptions="Center"/>
+                <Entry BackgroundColor="White" HorizontalOptions="Center" x:Name="entryPlafond"/>
+                <Label Text="Secondes" HorizontalOptions="Center"/>
+                <Entry BackgroundColor="White" HorizontalOptions="Center" x:Name="entrySecs"/>
+                <Button HorizontalOptions="Center" WidthRequest="200" Text="Commencer" x:Name="btnEcherirAuto" Clicked="btnEcherirAuto_Clicked"/>
+            </VerticalStackLayout>
 
         </VerticalStackLayout>
     </ScrollView>

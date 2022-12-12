@@ -5,13 +5,16 @@
              Title="UneEnchereFlashVue">
     <ScrollView Margin="0,30,0,0">
         <VerticalStackLayout Margin="30">
-            <FlexLayout WidthRequest="500" HeightRequest="500">
+            <AbsoluteLayout WidthRequest="500" HeightRequest="500">
                 <Image Source="{Binding Enchere.LeProduit.Photo}" Margin="0, 0, 0, 0" WidthRequest="500" HeightRequest="500" HorizontalOptions="Center"/>
-                <BoxView WidthRequest="150" HeightRequest="150" Color="Black" Margin="0, 0, 0, 0"/>
-                <BoxView WidthRequest="150" HeightRequest="150" Color="Red" Margin="200, 0, 0, 0"/>
-                <BoxView WidthRequest="150" HeightRequest="150" Color="Green" Margin="200, 0, 0, 0"/>
-                <BoxView WidthRequest="150" HeightRequest="150" Color="Yellow" Margin="200, 0, 0, 0"/>
-            </FlexLayout>
+                <CollectionView ItemsSource="{Binding TableauFlash}" ItemsLayout="VerticalGrid, 2">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Label WidthRequest="110" HeightRequest="110" BackgroundColor="Black" Margin="10, 10, 0, 0" Text="{Binding Prix}"/>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </AbsoluteLayout>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

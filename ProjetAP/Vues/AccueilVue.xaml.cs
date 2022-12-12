@@ -30,4 +30,9 @@ public partial class AccueilVue : ContentPage
     {
         App.Current.MainPage = new EncheresFlashsVue();
     }
+
+    private void btnAffichageHistorique_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }

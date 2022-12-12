@@ -31,5 +31,10 @@ namespace ProjetAP.Services
             App.Current.MainPage = new LoginVue();
         }
 
+        public static bool IsVisiter()
+        {
+            return User.Id == -1;
+        }
+
     }
 }

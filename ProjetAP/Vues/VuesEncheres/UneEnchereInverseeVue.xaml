@@ -23,7 +23,7 @@
                     </MultiBinding>
                 </Label.Text>
             </Label>
-            <Button Margin="0,10,0,0" HorizontalOptions="Center" WidthRequest="200" Text="Acheter" x:Name="btnAcheter" Clicked="btnAcheter_Clicked"/>
+            <Button IsVisible="{Binding IsUserLogged}" Margin="0,10,0,0" HorizontalOptions="Center" WidthRequest="200" Text="Acheter" x:Name="btnAcheter" Clicked="btnAcheter_Clicked"/>
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -14,7 +14,6 @@ public partial class UneEnchereFlashVue : ContentPage
 
     private void btnRetour_Clicked(object sender, EventArgs e)
     {
-
 		App.Current.MainPage = new EncheresFlashsVue();
     }
 }

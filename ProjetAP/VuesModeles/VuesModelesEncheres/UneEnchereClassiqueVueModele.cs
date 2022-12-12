@@ -48,6 +48,10 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
             get => _offers;
             set => SetProperty(ref _offers, value);
         }
+        public bool IsUserLogged
+        {
+            get => !Session.IsVisiter();
+        }
         public Enchere Enchere
         {
             get => _enchere;
@@ -99,7 +103,6 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
                         OnCancel = true;
                     }
                 }
-
             });
 
 

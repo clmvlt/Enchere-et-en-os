@@ -42,6 +42,11 @@ namespace ProjetAP.VuesModeles.VuesModelesEncheres
         #endregion
 
         #region Properties (Getters/Setters)
+
+        public bool IsUserLogged
+        {
+            get => !Session.IsVisiter();
+        }
         public ObservableCollection<Offer> Offers
         {
             get => _offers;

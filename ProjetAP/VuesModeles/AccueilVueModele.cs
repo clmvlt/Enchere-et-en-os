@@ -1,4 +1,5 @@
 ﻿using ProjetAP.Modeles;
+using ProjetAP.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace ProjetAP.VuesModeles
 
         #region Guetters Setteurs
         public User User { get => _user; set => SetProperty(ref _user, value); }
+        public bool IsUserLogged
+        {
+            get => !Session.IsVisiter();
+        }
         #endregion
 
         #region Methodes
